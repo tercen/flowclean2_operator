@@ -3,22 +3,20 @@ library(tidyverse)
 library(flowCore)
 library(flowClean)
 
-
-# /w/affe1383f9318d3b8141a4bfa700a359/ds/526578e0-b152-4db0-ba75-0f32ee999a84
+# Minimum amount of cells is 30.000
+# QC cutoff value = 10.000
+# markercolumns have to be selected
 
 ctx <- tercenCtx(workflowId = "affe1383f9318d3b8141a4bfa700a359",
                  stepId = "526578e0-b152-4db0-ba75-0f32ee999a84")
 
 time <- ctx$cselect(ctx$cnames[[1]])
-
 data <- ctx$as.matrix() %>% t()
 data <- as.matrix(cbind(data, time))
 
 # Indicate which columns are the markers of which you want to QC. (take out FSC SSC etc.)
 # FSC and SSC are in 1, 2. Time is in the last column.
 markercolumns <- c(3: (ncol(data)-1))
-markercolumns
-
 
 matrix2flowset <- function(a_matrix){ 
   
@@ -48,11 +46,12 @@ matrix2flowset <- function(a_matrix){
   return(flowset)
 }
 
-fcframe <- matrix2flowset(data)
+fc_frame <- matrix2flowset(data)
 
 #fF, vectMarkers, filePrefixWithDir, ext, binSize=0.01,nCellCutoff=500,
 #announce=TRUE, cutoff="median", diagnostic=FALSE, fcMax=1.3)
-flowClean::clean(fcframe, 
+
+qc_df <- as.data.frame(flowClean::clean(fc_frame, 
                  #filePrefixWithDir = "QC_output",
                  vectMarkers = markercolumns,
                  ext = "fcs",
@@ -60,10 +59,16 @@ flowClean::clean(fcframe,
                  nCellCutoff=500,
                  #announce = TRUE,
                  cutoff="median",
-                 #diagnostic = FALSE,
+                 #diagnostic = TRUE,
                  fcMax=1.3,
                  returnVector = TRUE
-                 )
+                 ))
+
 ### returnVector has to be TRUE, otherwise errormessage:
 ### Error in makeFCS(fF, GoodVsBad, filePrefixWithDir, numbins, nCellCutoff,  : 
 ### (list) object cannot be coerced to type 'double'
+
+flag <- ifelse(qc_df >= 10000, "fail", "pass")
+
+# Is this correct ?
+qc_result <- ctx$addNamespace(flag)

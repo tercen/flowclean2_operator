@@ -1,50 +1,37 @@
-# Template R operator
-
-The `Template R operator` is a template repository for the creation of R operators in Tercen. An overview of steps for developing an operator are:
-
-1. create a github repo
-2. install tercen_studio
-3. login to tercen_studio
-4. git clone the newly created repo
-5. start developing in R in tercen_studio
-6. add R packages to the repo
-7. push to the github repo
-8. go to tercen and install the operator
-
-More information can be found in [Tercen app builder's guide](https://tercen.github.io/appbuilders-guide/).
-
-Below is the operator README standard structure:
+# flowClean operator
 
 ##### Description
 
-The `Template R operator` is a template repository for the creation of R operators in Tercen.
+`flowClean` operator performs a quality control on flowcytometric data.
+Number of events has to be >30.000.
 
 ##### Usage
 
 Input projection|.
 ---|---
-`x-axis`        | type, description 
-`y-axis`        | type, description 
-`row`           | type, description 
-`column`        | type, description 
-`colors`        | type, description 
-`labels`        | type, description 
+`row`   | represents the variables (e.g. channels, markers)
+`col`   | represents the observations (e.g. cells, samples, individuals) 
+`y-axis`| measurement value
+
+Output relations|.
+---|---
+`flag`         | character, quality flag `pass` or `fail`
 
 Input parameters|.
 ---|---
 `input_var`        | parameter description
 
-Output relations|.
----|---
-`output_var`        | output relation
-`Operator view`        | view of the Shiny application
-
 ##### Details
 
-Details on the computation.
+`flowClean` tests  for  deviations  fromuniformity of collection. 
+The collection time is discretized into periods and the quality tested. 
+Returns a column with "pass" or "fail" per event. 
+
+#### Reference
+[flowClean R package]((http://bioconductor.org/packages/release/bioc/html/flowClean.html))
 
 ##### See Also
 
-[template_shiny_operator](https://github.com/tercen/template_shiny_operator)
-, [template_docker_operator](https://github.com/tercen/template_docker_operator)
-
+[flowAI R package]((http://bioconductor.org/packages/release/bioc/html/flowAI.html))
+, 
+[flowsom operator](https://github.com/tercen/flowsom_operator)

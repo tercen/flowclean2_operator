@@ -37,28 +37,26 @@ data <- exprs(synPerturbed)
 fcframe <- matrix2flowset(data)
   
 test <- as.matrix(flowClean::clean(fcframe, 
-                 filePrefixWithDir = "QC_output",
+                 #filePrefixWithDir = "QC_output",
                  vectMarkers = c(5:17),
                  ext = "fcs",
                  binSize=0.01,
                  nCellCutoff=500,
                  announce = TRUE,
                  cutoff="median",
-                 diagnostic = TRUE,
+                 #diagnostic = TRUE,
                  fcMax=1.3,
                  returnVector = TRUE
 ))
 
+# Pass cutoff is 10000
+ifelse(test>= 10000, "fail" , "pass")
+hist(test)
+
+
+### Checking if the example output is identical to the script output. It is. ###
 synPerturbed.c <- as.matrix(clean(synPerturbed, vectMarkers=c(5:17),filePrefixWithDir="sampleName", ext="fcs", returnVector = FALSE))
 identical(test, synPerturbed.c)
-
-
-
-
-
-
-
-
 
 
 
