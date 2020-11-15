@@ -1,9 +1,9 @@
 {
-  "name": "Template R operator",
-  "description": "Return the medium value of a cell",
+  "name": "flowClean",
+  "description": "QC of flowdata",
   "tags": ["template"],
   "authors": ["tercen"],
-  "urls": ["https://github.com/tercen/template_R_operator"],
+  "urls": [""],
   "properties": [
    {
     "kind": "StringProperty",
