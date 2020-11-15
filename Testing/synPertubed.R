@@ -4,7 +4,7 @@ library(flowCore)
 library(flowClean)
 
 data("synPerturbed")
-write.FCS(synPerturbed, "synPertuberd.fcs")
+#write.FCS(synPerturbed, "synPertuberd.fcs")
 matrix2flowset <- function(a_matrix){ 
   
   minRange <- matrixStats::colMins(a_matrix)

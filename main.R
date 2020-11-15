@@ -73,6 +73,3 @@ flag <- ifelse(qc_list >= 10000, "fail", "pass")
 qc_df <- data.frame(flag, .ci = (0:(length(flag)-1)))
 qc_result <- ctx$addNamespace(qc_df)
 ctx$save(qc_result)
-
-
-
