@@ -52,7 +52,7 @@ fc_frame <- matrix2flowset(data)
 qc_df <- as.data.frame(flowClean::clean(fc_frame, 
                                         #filePrefixWithDir = "QC_output",
                                         vectMarkers = markercolumns,
-                                        ext = "fcs",
+                                        #ext = "fcs",
                                         binSize=0.01,
                                         nCellCutoff=500,
                                         #announce = TRUE,
@@ -66,7 +66,5 @@ qc_df <- as.data.frame(flowClean::clean(fc_frame,
 ### (list) object cannot be coerced to type 'double'
 
 flag <- ifelse(qc_df >= 10000, "fail", "pass")
-
-# Is this correct ?
 qc_result <- ctx$addNamespace(flag)
 
