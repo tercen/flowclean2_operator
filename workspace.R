@@ -49,7 +49,7 @@ markercolumns <- c(3: (ncol(data)-1))
 
 fc_frame <- matrix2flowset(data)
 
-qc_df <- as.data.frame(flowClean::clean(fc_frame, 
+qc_df <- suppressWarnings(as.data.frame(flowClean::clean(fc_frame, 
                                         #filePrefixWithDir = "QC_output",
                                         vectMarkers = markercolumns,
                                         #ext = "fcs",
@@ -60,11 +60,13 @@ qc_df <- as.data.frame(flowClean::clean(fc_frame,
                                         #diagnostic = TRUE,
                                         fcMax=1.3,
                                         returnVector = TRUE
-                                        ))
+                                        )))
 ### returnVector has to be TRUE, otherwise errormessage:
 ### Error in makeFCS(fF, GoodVsBad, filePrefixWithDir, numbins, nCellCutoff,  : 
 ### (list) object cannot be coerced to type 'double'
 
 flag <- ifelse(qc_df >= 10000, "fail", "pass")
+colnames(flag) <- "QCflag"
 qc_result <- ctx$addNamespace(flag)
+
 

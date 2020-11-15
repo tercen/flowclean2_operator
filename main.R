@@ -66,5 +66,6 @@ qc_df <- as.data.frame(flowClean::clean(fc_frame,
 ### (list) object cannot be coerced to type 'double'
 
 flag <- ifelse(qc_df >= 10000, "fail", "pass")
+colnames(flag) <- "QCflag"
 qc_result <- ctx$addNamespace(flag)
 ctx$save(qc_result)
