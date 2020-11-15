@@ -1,5 +1,6 @@
 library(tercen)
 library(dplyr)
+library(tibble)
 library(tidyverse)
 library(flowCore)
 library(flowClean)
@@ -66,4 +67,4 @@ qc_df <- as.data.frame(flowClean::clean(fc_frame,
 
 flag <- ifelse(qc_df >= 10000, "fail", "pass")
 qc_result <- ctx$addNamespace(flag)
-
+ctx$save(qc_result)
