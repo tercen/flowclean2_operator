@@ -7,7 +7,7 @@ library(flowClean)
 
 # Minimum amount of cells is 30.000
 # QC cutoff value = 10.000
-# markercolumns have to be selected
+
 
 matrix2flowset <- function(a_matrix){ 
   
@@ -44,17 +44,13 @@ time <- ctx$cselect(ctx$cnames[[1]])
 data <- ctx$as.matrix() %>% t()
 data <- as.matrix(cbind(data, time))
 
-# Indicate which columns are the markers of which you want to QC. (take out FSC SSC etc.)
-# FSC and SSC are in 1, 2. Time is in the last column.
-#markercolumns <- c(3: (ncol(data)-1))
-
 fc_frame <- matrix2flowset(data)
 
 qc_list <- 
   flowClean::clean(
     fc_frame,
     #filePrefixWithDir = "QC_output",
-    #vectMarkers = ,
+    #vectMarkers = "markercolumns",
     #ext = "fcs",
     binSize = 0.01,
     nCellCutoff = 500,
@@ -64,10 +60,6 @@ qc_list <-
     fcMax = 1.3,
     returnVector = TRUE
   )
-
-### returnVector has to be TRUE, otherwise errormessage:
-### Error in makeFCS(fF, GoodVsBad, filePrefixWithDir, numbins, nCellCutoff,  : 
-### (list) object cannot be coerced to type 'double'
 
 flag <- ifelse(qc_list >= 10000, "fail", "pass")
 qc_df <- data.frame(flag, .ci = (0:(length(flag)-1)))
