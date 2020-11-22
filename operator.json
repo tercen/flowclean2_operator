@@ -9,7 +9,19 @@
     "kind": "DoubleProperty",
     "name": "nstable",
     "defaultValue": 5,
-    "description": "The number of stable populations required to be observed during the duration ofan experiment. Default is 5."
+    "description": "The number of stable populations required to be observed during the duration of an experiment. Default is 5."
+  },
+  {
+    "kind": "DoubleProperty",
+    "name": "fcMax",
+    "defaultValue": 1.3,
+    "description": "Maximum allowable increase relative to presumed ’good’ data"
+  },
+  {
+    "kind": "DoubleProperty",
+    "name": "nCellCutoff",
+    "defaultValue": 500,
+    "description": "An integer; represents the minimum number of cells a population must have tobe included in analysis."
   }
   ]
 }
