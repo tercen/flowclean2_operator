@@ -10,20 +10,6 @@
     "name": "nCellCutoff",
     "defaultValue": "500",
     "description": "An integer; represents the minimum number of cells a population must have tobe included in analysis."
-    },
-  
-    {
-    "kind": "EnumeratedProperty",
-    "name": "list_example",
-    "defaultValue": "value1",
-    "values": [
-      "value1",
-      "StringProperty",
-      "DoubleProperty",
-      "BooleanProperty",
-      "EnumeratedProperty"
-    ],
-    "description": "description parameter 2"
-  }
+    }
   ]
 }
