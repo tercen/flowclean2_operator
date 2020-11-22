@@ -6,7 +6,7 @@
   "urls": [""],
   "properties": [
    {
-    "kind": "IntegerProperty",
+    "kind": "DoubleProperty",
     "name": "nCellCutoff",
     "defaultValue": "500",
     "description": "An integer; represents the minimum number of cells a population must have tobe included in analysis."
