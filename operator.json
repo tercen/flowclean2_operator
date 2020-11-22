@@ -1,15 +1,15 @@
 {
-  "name": "flowClean",
-  "description": "Quality control of flowcytometry data",
-  "tags": ["flowcytometry"],
+  "name": "Template R operator",
+  "description": "Return the medium value of a cell",
+  "tags": ["template"],
   "authors": ["tercen"],
-  "urls": [""],
+  "urls": ["https://github.com/tercen/template_R_operator"],
   "properties": [
    {
-    "kind": "DoubleProperty",
-    "name": "nCellCutoff",
-    "defaultValue": 500,
-    "description": "An integer; represents the minimum number of cells a population must have tobe included in analysis."
+    "kind": "StringProperty",
+    "name": "string_example",
+    "defaultValue": "example",
+    "description": "description parameter 1"
     },
     {
     "kind": "EnumeratedProperty",
