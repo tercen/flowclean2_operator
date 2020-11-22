@@ -37,8 +37,7 @@ matrix2flowset <- function(a_matrix){
   return(flowset)
 }
 
-ctx <- tercenCtx(workflowId = "affe1383f9318d3b8141a4bfa700a359",
-                 stepId = "526578e0-b152-4db0-ba75-0f32ee999a84")
+ctx <- tercenCtx()
 
 time <- ctx$cselect(ctx$cnames[[1]])
 data <- ctx$as.matrix() %>% t()
