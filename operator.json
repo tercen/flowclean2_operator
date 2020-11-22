@@ -1,16 +1,17 @@
 {
   "name": "flowClean",
   "description": "QC of flowdata",
-  "tags": ["template"],
+  "tags": ["flowcytometry"],
   "authors": ["tercen"],
   "urls": [""],
   "properties": [
    {
-    "kind": "StringProperty",
-    "name": "string_example",
-    "defaultValue": "example",
-    "description": "description parameter 1"
+    "kind": "IntegerProperty",
+    "name": "nCellCutoff",
+    "defaultValue": "500",
+    "description": "An integer; represents the minimum number of cells a population must have tobe included in analysis."
     },
+  
     {
     "kind": "EnumeratedProperty",
     "name": "list_example",
@@ -26,5 +27,3 @@
   }
   ]
 }
-
-

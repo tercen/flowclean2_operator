@@ -58,7 +58,8 @@ qc_list <-
     cutoff = "median",
     #diagnostic = TRUE,
     fcMax = 1.3,
-    returnVector = TRUE
+    returnVector = TRUE,
+    nstable = 5
   )
 
 flag <- ifelse(qc_list >= 10000, "fail", "pass")
