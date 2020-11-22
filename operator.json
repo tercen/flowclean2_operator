@@ -9,7 +9,7 @@
     "kind": "DoubleProperty",
     "name": "nstable",
     "defaultValue": "5",
-    "description": "The number of stable populations required to be observed during the duration ofan experiment. Default is 5.",
+    "description": "The number of stable populations required to be observed during the duration ofan experiment. Default is 5."
   }
   ]
 }
