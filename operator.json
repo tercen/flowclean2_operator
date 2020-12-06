@@ -25,12 +25,6 @@
   },
   {
     "kind": "DoubleProperty",
-    "name": "cutoff",
-    "defaultValue": 10,
-    "description": "Method for determining threshold for parameter.  Can be \"median\" (default) or in [0, 1], which is interpreted as a percentile. Integers > 1 will be interpreted as the fluorescence value to be used for a threshold. Default (10) translates to median"
-  },
-  {
-    "kind": "DoubleProperty",
     "name": "binSize",
     "defaultValue": 0.01,
     "description": "A number in [0,1]; represents the fraction of duration of collection per bin."
