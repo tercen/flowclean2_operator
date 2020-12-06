@@ -39,7 +39,7 @@ matrix2flowset <- function(a_matrix){
 data("synPerturbed")
 data <- exprs(synPerturbed)
 fc_frame <- matrix2flowset(data)
-colnames(data)
+
 qc_list <- 
   flowClean::clean(
     fc_frame,

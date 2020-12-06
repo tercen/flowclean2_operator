@@ -38,7 +38,7 @@ matrix2flowset <- function(a_matrix){
 }
 
 synPerturbedcsv <- "f5b451f5-2953-43ed-adbc-56ff1ec4b190"
-testcsv <- "526578e0-b152-4db0-ba75-0f32ee999a84"
+testcsv <- "6a29c574-2528-4891-9128-8b94760d087a"
 
 
 ctx <- tercenCtx(workflowId = "affe1383f9318d3b8141a4bfa700a359",
@@ -47,8 +47,12 @@ ctx <- tercenCtx(workflowId = "affe1383f9318d3b8141a4bfa700a359",
 time <- ctx$cselect(ctx$cnames[[1]])
 data <- ctx$as.matrix() %>% t()
 data <- as.matrix(cbind(data, time))
+# Testing if the amount of input cells are >30000
+if (nrow(data)<30000) {stop("flowClean requires >30000 cells to be measured.")}
 
 fc_frame <- matrix2flowset(data)
+
+cutoffvar = ifelse(is.null(ctx$op.value('cutoff')), "median", as.double(ctx$op.value('cutoff')))
 
 qc_list <- 
   flowClean::clean(
@@ -59,7 +63,7 @@ qc_list <-
     binSize = 0.01,
     nCellCutoff = 500,
     #announce = TRUE,
-    cutoff = "median",
+    cutoff = cutoffvar,
     #diagnostic = TRUE,
     fcMax = 1.3,
     returnVector = TRUE,

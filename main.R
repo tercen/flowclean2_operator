@@ -42,8 +42,12 @@ ctx <- tercenCtx()
 time <- ctx$cselect(ctx$cnames[[1]])
 data <- ctx$as.matrix() %>% t()
 data <- as.matrix(cbind(data, time))
+# Testing if the amount of input cells are >30000
+if (nrow(data)<30000) {stop("flowClean requires >30000 cells to be measured.")}
 
 fc_frame <- matrix2flowset(data)
+
+cutoffvar = ifelse(is.null(ctx$op.value('cutoff')), "median", as.double(ctx$op.value('cutoff')))
 
 qc_list <- 
   flowClean::clean(
@@ -54,7 +58,7 @@ qc_list <-
     binSize = 0.01,
     nCellCutoff = 500,
     #announce = TRUE,
-    cutoff = "median",
+    cutoff = cutoffvar,
     #diagnostic = TRUE,
     fcMax = 1.3,
     returnVector = TRUE,
