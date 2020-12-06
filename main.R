@@ -46,8 +46,7 @@ data <- as.matrix(cbind(data, time))
 if (nrow(data)<30000) {stop("flowClean requires >30000 cells to be measured.")}
 
 fc_frame <- matrix2flowset(data)
-
-cutoffvar = ifelse(is.null(ctx$op.value('cutoff')), "median", as.double(ctx$op.value('cutoff')))
+cutoffvar = ifelse((ctx$op.value('cutoff') == 10), "median", as.double(ctx$op.value('cutoff')))
 
 qc_list <- 
   flowClean::clean(
