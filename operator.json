@@ -22,12 +22,6 @@
     "name": "nCellCutoff",
     "defaultValue": 500,
     "description": "An integer; represents the minimum number of cells a population must have tobe included in analysis."
-  },
-  {
-    "kind": "DoubleProperty",
-    "name": "binSize",
-    "defaultValue": 0.01,
-    "description": "A number in [0,1]; represents the fraction of duration of collection per bin."
   }
   ]
 }
