@@ -21,10 +21,10 @@ Output relations|.
 
 Input parameters|.
 ---|---
-`binSize`     |  A number in [0,1]; represents the fraction of duration of collection per bin.
-`nCellCutoff` |  An integer; represents the minimum number of cells a population must have tobe included in analysis.
-`cutoff`      | Method for determining threshold for parameter.  Can be "median" (default) orin [0, 1], which is interpreted as a percentile. Integers > 1 will be interpreted as the fluorescence value to be used for a threshold.
-`fcMax`       |  Maximum allowable increase relative to presumed ’good’ data.announceIf TRUE, will print message to screen if errors detected.
+`binSize`     |  A number in [0,1], represents the fraction of duration of collection per bin.
+`nCellCutoff` |  An integer, represents the minimum number of cells a population must have tobe included in analysis.
+`cutoff`      | Method for determining threshold for parameter.  Can be 'median" (default) orin [0, 1], which is interpreted as a percentile. Integers > 1 will be interpreted as the fluorescence value to be used for a threshold.
+`fcMax`       |  Maximum allowable increase relative to presumed ’good’ data.announce If TRUE, will print message to screen if errors detected.
 `nstable`     |  The number of stable populations required to be observed during the duration ofan experiment. Default is 5.
 
 ##### Details
