@@ -38,7 +38,7 @@
   {
     "kind": "BooleanProperty",
     "name": "bypass",
-    "defaultValue": "FALSE",
+    "defaultValue": false,
     "description": "bypass the event number limitation (unadvised)"
   }
   ]
