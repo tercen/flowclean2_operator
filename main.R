@@ -52,9 +52,9 @@ cutoffvar = ifelse((ctx$op.value('cutoff') == 10), "median", as.double(ctx$op.va
 qc_list <- 
   flowClean::clean(
     fc_frame,
-    #filePrefixWithDir = "QC_output",
+    filePrefixWithDir = "QC_output",
     #vectMarkers = "markercolumns",
-    #ext = "fcs",
+    ext = "fcs",
     binSize = 0.01,
     nCellCutoff = 500,
     #announce = TRUE,
