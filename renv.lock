@@ -12,19 +12,19 @@
       },
       {
         "Name": "BioCsoft",
-        "URL": "https://cran.tercen.com/api/v1/rlib/BioCsoft-3.8"
+        "URL": "https://cran.tercen.com/api/v1/rlib/BioCsoft-3.12"
       },
       {
         "Name": "BioCann",
-        "URL": "https://cran.tercen.com/api/v1/rlib/BioCann-3.8"
+        "URL": "https://cran.tercen.com/api/v1/rlib/BioCann-3.12"
       },
       {
         "Name": "BioCexp",
-        "URL": "https://cran.tercen.com/api/v1/rlib/BioCexp-3.8"
+        "URL": "https://cran.tercen.com/api/v1/rlib/BioCexp-3.12"
       },
       {
         "Name": "BioCworkflows",
-        "URL": "https://cran.tercen.com/api/v1/rlib/BioCworkflows-3.8"
+        "URL": "https://cran.tercen.com/api/v1/rlib/BioCworkflows-3.12"
       }
     ]
   },
@@ -1028,10 +1028,10 @@
     },
     "renv": {
       "Package": "renv",
-      "Version": "0.15.3",
+      "Version": "0.15.2",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "318c703b833089e1bc0c6a198362ca19",
+      "Hash": "206c4ef8b7ad6fb1060d69aa7b9dfe69",
       "Requirements": []
     },
     "reprex": {
