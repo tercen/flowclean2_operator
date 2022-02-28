@@ -42,8 +42,9 @@ ctx <- tercenCtx()
 time <- ctx$cselect(ctx$cnames[[1]])
 data <- ctx$as.matrix() %>% t()
 data <- as.matrix(cbind(data, time))
+
 # Testing if the amount of input cells are >30000
-if (nrow(data)<30000) {stop("flowClean requires >30000 cells to be measured.")}
+if (nrow(data)<30000 & !ctx$op.value('bypass')) {stop("flowClean requires >30000 cells to be measured.")}
 
 fc_frame <- matrix2flowset(data)
 cutoffvar = ifelse((ctx$op.value('cutoff') == 10), "median", as.double(ctx$op.value('cutoff')))

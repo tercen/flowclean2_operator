@@ -5,6 +5,12 @@ library(tidyverse)
 library(flowCore)
 library(flowClean)
 
+options("tercen.workflowId" = "c18b8d0cd4ce6dffa7e1308ff2066a68")
+options("tercen.stepId"     = "9c7c8f09-83bb-44d1-8765-4157c9de4ecb")
+
+getOption("tercen.workflowId")
+getOption("tercen.stepId")
+
 # Minimum amount of cells is 30.000
 # QC cutoff value = 10.000
 
@@ -37,12 +43,8 @@ matrix2flowset <- function(a_matrix){
   return(flowset)
 }
 
-synPerturbedcsv <- "f5b451f5-2953-43ed-adbc-56ff1ec4b190"
-testcsv <- "6a29c574-2528-4891-9128-8b94760d087a"
 
-
-ctx <- tercenCtx(workflowId = "affe1383f9318d3b8141a4bfa700a359",
-                 stepId = testcsv)
+ctx <- tercenCtx()
 
 time <- ctx$cselect(ctx$cnames[[1]])
 data <- ctx$as.matrix() %>% t()
@@ -57,9 +59,9 @@ cutoffvar = ifelse((ctx$op.value('cutoff') == 10), "median", as.double(ctx$op.va
 qc_list <- 
   flowClean::clean(
     fc_frame,
-    #filePrefixWithDir = "QC_output",
+    filePrefixWithDir = "QC_output",
     #vectMarkers = "markercolumns",
-    #ext = "fcs",
+    ext = "fcs",
     binSize = 0.01,
     nCellCutoff = 500,
     #announce = TRUE,

@@ -34,6 +34,12 @@
     "name": "cutoff",
     "defaultValue": 10,
     "description": "Method for determining threshold for parameter.  Can be \"median\" (default) or in [0, 1], which is interpreted as a percentile. Integers > 1 will be interpreted as the fluorescence value to be used for a threshold. Default (10) translates to median"
+  },
+  {
+    "kind": "BooleanProperty",
+    "name": "bypass",
+    "defaultValue": "FALSE",
+    "description": "bypass the event number limitation (unadvised)"
   }
   ]
 }
