@@ -7,7 +7,7 @@ library(flowClean)
 
 # Minimum amount of cells is 30.000
 # QC cutoff value = 10.000
-
+#
 
 matrix2flowFrame <- function(a_matrix){ 
   minRange <- matrixStats::colMins(a_matrix)

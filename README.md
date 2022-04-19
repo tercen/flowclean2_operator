@@ -3,7 +3,7 @@
 ##### Description
 
 `flowClean` operator performs a quality control on flowcytometric data.
-Number of events has to be >30.000.
+Number of events has to be > 30.000.
 
 ##### Usage
 
