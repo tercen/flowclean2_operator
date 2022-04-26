@@ -5,10 +5,10 @@
   "inputDataUri": "c03_simple_fcs.tsv",
   "outputDataUri": ["table1.csv","table2.csv"],
   "columns": ["Time"],
-  "rows": ["CHANNEL"],
+  "rows": ["Variable"],
   "colors": [],
   "labels": [],
-  "yAxis": "Value",
+  "yAxis": "Measurement",
   "xAxis": ""
 }
 
