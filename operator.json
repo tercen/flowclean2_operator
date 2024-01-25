@@ -1,45 +1,52 @@
 {
   "name": "FlowClean",
   "description": "Flow Cytometry Cleaning: A quality control tool for fluorescence anomalies in flow cytometry data. Based on compositional data analysis.",
-  "tags": ["flowcytometry"],
-  "authors": ["tercen"],
-  "urls": ["https://github.com/tercen/flowclean_operator"],
+  "tags": [
+    "flow cytometry",
+    "QC"
+  ],
+  "authors": [
+    "tercen"
+  ],
+  "urls": [
+    "https://github.com/tercen/flowclean_operator"
+  ],
   "properties": [
-   {
-    "kind": "DoubleProperty",
-    "name": "nstable",
-    "defaultValue": 5,
-    "description": "The number of stable populations required to be observed during the duration of an experiment. Default is 5."
-  },
-  {
-    "kind": "DoubleProperty",
-    "name": "fcMax",
-    "defaultValue": 1.3,
-    "description": "Maximum allowable increase relative to presumed ’good’ data"
-  },
-  {
-    "kind": "DoubleProperty",
-    "name": "nCellCutoff",
-    "defaultValue": 500,
-    "description": "An integer; represents the minimum number of cells a population must have tobe included in analysis. "
-  },
-  {
-    "kind": "DoubleProperty",
-    "name": "binSize",
-    "defaultValue": 0.01,
-    "description": "A number in [0,1]; represents the fraction of duration of collection per bin."
-  },
-  {
-    "kind": "DoubleProperty",
-    "name": "cutoff",
-    "defaultValue": 10,
-    "description": "Method for determining threshold for parameter.  Can be \"median\" (default) or in [0, 1], which is interpreted as a percentile. Integers > 1 will be interpreted as the fluorescence value to be used for a threshold. Default (10) translates to median"
-  },
-  {
-    "kind": "BooleanProperty",
-    "name": "bypass",
-    "defaultValue": false,
-    "description": "bypass the event number limitation (unadvised)"
-  }
+    {
+      "kind": "DoubleProperty",
+      "name": "nstable",
+      "defaultValue": 5,
+      "description": "The number of stable populations required to be observed during the duration of an experiment. Default is 5."
+    },
+    {
+      "kind": "DoubleProperty",
+      "name": "fcMax",
+      "defaultValue": 1.3,
+      "description": "Maximum allowable increase relative to presumed ’good’ data"
+    },
+    {
+      "kind": "DoubleProperty",
+      "name": "nCellCutoff",
+      "defaultValue": 500,
+      "description": "An integer; represents the minimum number of cells a population must have tobe included in analysis. "
+    },
+    {
+      "kind": "DoubleProperty",
+      "name": "binSize",
+      "defaultValue": 0.01,
+      "description": "A number in [0,1]; represents the fraction of duration of collection per bin."
+    },
+    {
+      "kind": "DoubleProperty",
+      "name": "cutoff",
+      "defaultValue": 10,
+      "description": "Method for determining threshold for parameter.  Can be \"median\" (default) or in [0, 1], which is interpreted as a percentile. Integers > 1 will be interpreted as the fluorescence value to be used for a threshold. Default (10) translates to median"
+    },
+    {
+      "kind": "BooleanProperty",
+      "name": "bypass",
+      "defaultValue": false,
+      "description": "bypass the event number limitation (unadvised)"
+    }
   ]
 }
